@@ -8,6 +8,40 @@ public class LogicTest {
   private Logics logic;
 
   @Test
+  public void correctlyCreatedKnight() {
+    this.logic = new LogicsImpl(SIZE_TABLE);
+    //Test the creation of Knight, but not in the first cell
+    boolean cellHasKnight = this.logic.hasKnight(1, 1);
+    assertFalse(cellHasKnight);
+  }
+
+  @Test
+  void correctlyCreatedPawn() {
+    this.logic = new LogicsImpl(SIZE_TABLE);
+    //Test the creation of Pawn, but not in the first cell
+    boolean cellHasPawn = this.logic.hasPawn(1, 1);
+    assertFalse(cellHasPawn);
+  }
+
+  @Test
+  public void throwsExceptionWhenOutOfTable() {
+    this.logic = new LogicsImpl(SIZE_TABLE);
+    assertThrows(IndexOutOfBoundsException.class, () -> this.logic.hit(-1, -1));
+  }
+
+  @Test
+  public void throwsExceptionOnTableBorder() {
+    this.logic = new LogicsImpl(SIZE_TABLE);
+    assertThrows(IndexOutOfBoundsException.class, () -> this.logic.hit(SIZE_TABLE, SIZE_TABLE));
+  }
+
+  @Test
+  public void hitCorrectlyFunctioning() {
+    this.logic = new LogicsImpl(SIZE_TABLE, new Pair<>(2,2), new Pair<>(4,1));
+    assertTrue(this.logic.hit(4,1));
+  }
+
+  @Test
   public void test() {
     // You can generate random inputs and assert the expected output
     // For example:
