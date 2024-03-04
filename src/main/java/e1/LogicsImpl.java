@@ -45,4 +45,12 @@ public class LogicsImpl implements Logics {
 	public boolean hasPawn(int row, int col) {
 		return this.pawn.equals(new Pair<>(row,col));
 	}
+
+	public Pair<Integer,Integer> getKnightPosition() {
+		return new Pair<>(this.knight.getX(), this.knight.getY());
+	}
+
+	public Pair<Integer,Integer> getPawnPosition() {
+		return new Pair<>(this.pawn.getX(), this.pawn.getY());
+	}
 }
