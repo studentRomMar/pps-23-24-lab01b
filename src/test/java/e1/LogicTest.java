@@ -14,14 +14,14 @@ public class LogicTest {
 
   @Test
   public void correctlyCreatedKnight() {
-    boolean cellHasKnight = this.logic.hasKnight(1, 1);
-    assertFalse(cellHasKnight);
+    boolean cellHasKnight = this.logic.hasKnight(2, 2);
+    assertTrue(cellHasKnight);
   }
 
   @Test
   void correctlyCreatedPawn() {
-    boolean cellHasPawn = this.logic.hasPawn(1, 1);
-    assertFalse(cellHasPawn);
+    boolean cellHasPawn = this.logic.hasPawn(4, 1);
+    assertTrue(cellHasPawn);
   }
 
   @Test
@@ -32,6 +32,11 @@ public class LogicTest {
   @Test
   public void throwsExceptionOnTableBorder() {
     assertThrows(IndexOutOfBoundsException.class, () -> this.logic.hit(SIZE_TABLE, SIZE_TABLE));
+  }
+
+  @Test
+  public void ExceptionWhenOutOfTablePlaying() {
+    assertThrows(IndexOutOfBoundsException.class, () -> this.logic.hit(SIZE_TABLE - 1, SIZE_TABLE));
   }
 
   @Test
