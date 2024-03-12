@@ -27,5 +27,19 @@ public class GamePieceTest {
         assertEquals(new Pair<Integer, Integer>(1, 3), this.pawn.getPosition());
     }
 
+    @Test
+    public void setNewPositionToKnight() {
+        Pair<Integer, Integer> newPosition = new Pair<>(3, 5);
+        this.knight.setPosition(newPosition);
+        assertEquals(newPosition, this.knight.getPosition());
+    }
+
+    @Test
+    public void setNewPositionToPawn() {
+        Pair<Integer, Integer> newPosition = new Pair<>(3, 5);
+        this.pawn.setPosition(newPosition);
+        assertEquals(newPosition, this.pawn.getPosition());
+    }
+
 
 }

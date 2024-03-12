@@ -27,7 +27,7 @@ public class Pawn implements GamePiece {
     }
 
     @Override
-    public void setPosition(Pair<Integer, Integer> coordinates) {
-
+    public void setPosition(Pair<Integer, Integer> newCoordinate) {
+        this.coordinate = newCoordinate;
     }
 }

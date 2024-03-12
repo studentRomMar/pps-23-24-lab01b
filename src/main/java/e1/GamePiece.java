@@ -12,7 +12,7 @@ public interface GamePiece {
     /**
      * Sets the new piece's coordinates
      *
-     * @param coordinates
+     * @param newCoordinate
      */
-    void setPosition(Pair<Integer, Integer> coordinates);
+    void setPosition(Pair<Integer, Integer> newCoordinate);
 }
