@@ -1,6 +1,10 @@
-package e1;
+package e1.logic;
 
-import java.util.*;
+import e1.utils.Pair;
+import e1.gamepiece.Knight;
+import e1.gamepiece.Pawn;
+
+import java.util.Random;
 
 public class LogicsImpl implements Logics {
 	

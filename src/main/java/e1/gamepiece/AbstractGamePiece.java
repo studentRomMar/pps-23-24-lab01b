@@ -1,4 +1,6 @@
-package e1;
+package e1.gamepiece;
+
+import e1.utils.Pair;
 
 import java.util.Random;
 

@@ -1,10 +1,8 @@
-package e1;
+package e1.gamepiece;
 
-import java.util.Random;
+public class Pawn extends AbstractGamePiece {
 
-public class Knight extends AbstractGamePiece {
-
-    public Knight(int tableSize) {
+    public Pawn(int tableSize) {
         super(tableSize);
     }
 
@@ -14,7 +12,7 @@ public class Knight extends AbstractGamePiece {
      * @param x
      * @param y
      */
-    public Knight(int x, int y) {
+    public Pawn(int x, int y) {
         super(x, y);
     }
 

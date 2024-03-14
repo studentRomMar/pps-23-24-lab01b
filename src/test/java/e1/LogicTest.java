@@ -1,4 +1,7 @@
 package e1;
+import e1.logic.Logics;
+import e1.logic.LogicsImpl;
+import e1.utils.Pair;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 public class LogicTest {

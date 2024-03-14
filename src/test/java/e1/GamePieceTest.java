@@ -1,5 +1,9 @@
 package e1;
 
+import e1.gamepiece.GamePiece;
+import e1.gamepiece.Knight;
+import e1.gamepiece.Pawn;
+import e1.utils.Pair;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
