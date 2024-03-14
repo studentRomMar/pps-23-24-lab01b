@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GamePieceTest {
 
-    public static final int SIZE = 5;
+    public static final int TABLE_SIZE = 5;
     private GamePiece knight;
     private GamePiece pawn;
 

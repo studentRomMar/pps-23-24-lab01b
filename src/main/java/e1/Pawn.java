@@ -2,13 +2,10 @@ package e1;
 
 import java.util.Random;
 
-public class Pawn implements GamePiece {
-
-    private Pair<Integer, Integer> coordinate;
-    private final Random random = new Random();
+public class Pawn extends AbstractGamePiece {
 
     public Pawn(int tableSize) {
-        this.coordinate = new Pair<>(this.random.nextInt(tableSize), this.random.nextInt(tableSize));
+        super(tableSize);
     }
 
     /**
@@ -17,17 +14,8 @@ public class Pawn implements GamePiece {
      * @param x
      * @param y
      */
-    public Pawn (int x, int y) {
-        this.coordinate = new Pair<>(x, y);
+    public Pawn(int x, int y) {
+        super(x, y);
     }
 
-    @Override
-    public Pair<Integer, Integer> getPosition() {
-        return this.coordinate;
-    }
-
-    @Override
-    public void setPosition(Pair<Integer, Integer> newCoordinate) {
-        this.coordinate = newCoordinate;
-    }
 }
