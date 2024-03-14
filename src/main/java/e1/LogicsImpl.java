@@ -24,7 +24,7 @@ public class LogicsImpl implements Logics {
 	private final Pair<Integer,Integer> randomEmptyPosition(){
     	Pair<Integer,Integer> pos = new Pair<>(this.random.nextInt(size),this.random.nextInt(size));
     	// the recursive call below prevents clash with an existing pawn
-    	return this.pawn!=null && this.pawn.equals(pos) ? randomEmptyPosition() : pos;
+    	return this.pawn != null && this.pawn.getPosition().equals(pos) ? randomEmptyPosition() : pos;
     }
     
 	@Override
@@ -38,7 +38,7 @@ public class LogicsImpl implements Logics {
 
 		if (x != 0 && y != 0 && Math.abs(x) + Math.abs(y) == 3) {
 			this.knight.setPosition(new Pair<>(row,col));
-			return this.pawn.equals(this.knight);
+			return this.pawn.getPosition().equals(this.knight.getPosition());
 		}
 		return false;
 	}
