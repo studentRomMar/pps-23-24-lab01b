@@ -4,21 +4,21 @@ import java.util.*;
 
 public class LogicsImpl implements Logics {
 	
-	private final Pair<Integer,Integer> pawn;
-	private Pair<Integer,Integer> knight;
+	private Pawn pawn;
+	private Knight knight;
 	private final Random random = new Random();
 	private final int size;
 	 
     public LogicsImpl(int size){
     	this.size = size;
-        this.pawn = this.randomEmptyPosition();
-        this.knight = this.randomEmptyPosition();	
+        this.pawn = new Pawn(size);
+        this.knight = new Knight(size);
     }
 
 	public LogicsImpl(int size, Pair<Integer, Integer> knightPosition, Pair<Integer, Integer> pawnPosition) {
 		this.size = size;
-		this.knight = knightPosition;
-		this.pawn = pawnPosition;
+		this.knight = new Knight(knightPosition.getX(), knightPosition.getY());
+		this.pawn = new Pawn(pawnPosition.getX(), pawnPosition.getY());
 	}
     
 	private final Pair<Integer,Integer> randomEmptyPosition(){
@@ -33,10 +33,11 @@ public class LogicsImpl implements Logics {
 			throw new IndexOutOfBoundsException();
 		}
 		// Below a compact way to express allowed moves for the knight
-		int x = row-this.knight.getX();
-		int y = col-this.knight.getY();
-		if (x!=0 && y!=0 && Math.abs(x)+Math.abs(y)==3) {
-			this.knight = new Pair<>(row,col);
+		int x = row-this.knight.getPosition().getX();
+		int y = col-this.knight.getPosition().getY();
+
+		if (x != 0 && y != 0 && Math.abs(x) + Math.abs(y) == 3) {
+			this.knight.setPosition(new Pair<>(row,col));
 			return this.pawn.equals(this.knight);
 		}
 		return false;
@@ -44,19 +45,21 @@ public class LogicsImpl implements Logics {
 
 	@Override
 	public boolean hasKnight(int row, int col) {
-		return this.knight.equals(new Pair<>(row,col));
+		Pair<Integer, Integer> knightPosition = this.knight.getPosition();
+		return knightPosition.equals(new Pair<>(row,col));
 	}
 
 	@Override
 	public boolean hasPawn(int row, int col) {
-		return this.pawn.equals(new Pair<>(row,col));
+		Pair<Integer, Integer> pawnPosition = this.pawn.getPosition();
+		return pawnPosition.equals(new Pair<>(row,col));
 	}
 
 	public Pair<Integer,Integer> getKnightPosition() {
-		return new Pair<>(this.knight.getX(), this.knight.getY());
+		return this.knight.getPosition();
 	}
 
 	public Pair<Integer,Integer> getPawnPosition() {
-		return new Pair<>(this.pawn.getX(), this.pawn.getY());
+		return this.pawn.getPosition();
 	}
 }
